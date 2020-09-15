@@ -12,6 +12,17 @@ async function getHashData(password, salt) {
     return crypted;
 }
 
+
+
+
+  /**
+   * User signs up.
+   * @param name string
+   * @param password string(hashed)
+   * @param email string
+   * @param bio string
+   * a row in db is inserted
+   */
 async function signUp(req, res) {
     try {
         let responseData;
@@ -50,7 +61,13 @@ function generateAccessToken(user) {
     return jwt.sign(userRec, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1d' })
 }
 
-
+  /**
+   * User log in.
+   * @param name string
+   * @param password string
+   * authentication of the user is done
+   * then a jwt token is generated that helps in authenticating the request.
+   */
 async function login(req, res) {
     try {
         let responseData;
@@ -74,10 +91,5 @@ async function login(req, res) {
         res.status(responseData.meta.code).json(responseData);
     }
 }
-
-
-
-
-
 
 module.exports = { signUp, login };

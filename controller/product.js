@@ -2,6 +2,17 @@ const Utility = require('../Utiliy/utility');
 const ProductData = require('../modules/product');
 
 let responseData;
+
+/**
+ * User adds product as a user or from a business name.
+ * @param user_id number
+ * @param business_id number
+ * @param is_business boolean
+ * @param is_user boolean
+ * @param name string
+ * @param mrp number
+ * @param description string
+ */
 async function addProducts(req, res) {
     try {
         const db = req.app.get('db');
@@ -36,6 +47,11 @@ async function addProducts(req, res) {
     }
 }
 
+
+/**
+ * User can delete a product from their listed products.
+ * @param product_id number
+ */
 async function removeProducts(req, res) {
     try {
         const db = req.app.get('db');
@@ -51,6 +67,12 @@ async function removeProducts(req, res) {
     }
 }
 
+
+/**
+ * User can check all their listed products.
+ * @param user_id number
+ * @param product_id number
+ */
 async function checkPostedProducts(req, res) {
     try{
         const db = req.app.get('db');
@@ -68,6 +90,13 @@ async function checkPostedProducts(req, res) {
         res.status(responseData.meta.code).json(responseData);
     }
 }
+
+  /**
+   * User can update the details of the products.
+   * @param user_id number
+   * @param product_id number
+   * either of the following items - @param name @param mrp @param description
+   */
 
 async function updateProductDetails(req, res){
     try{

@@ -16,7 +16,7 @@ app.set('db', connection);
 app.listen(3000,() => console.log("Server running on port 3000"));
 
 
-//routes----
+//-------------routes--------------
 
 app.post('/user/signup', user.signUp);
 app.get('/user/login', user.login);
@@ -27,6 +27,7 @@ app.post('/user/removeProducts', middleware.authenticateToken, product.removePro
 app.get('/user/checkPostedProducts', middleware.authenticateToken, product.checkPostedProducts);
 app.post('/user/updateProductDetails', middleware.authenticateToken, product.updateProductDetails);
 
+//-----------------------------------------
 
 module.exports = {connection, app}
 

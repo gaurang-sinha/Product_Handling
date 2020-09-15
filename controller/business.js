@@ -2,6 +2,13 @@ const BusinessData = require('../modules/business');
 const Utility = require('../Utiliy/utility');
 
 let responseData;
+/**
+ * User adds business.
+ * @param name string
+ * @param email string
+ * @param user_id number
+ * @param reg_no string
+ */
 async function addBusiness(req, res) {
     try {
         const db = req.app.get('db')
@@ -20,7 +27,7 @@ async function addBusiness(req, res) {
             responseData = Utility.getResponseData(true, 'Business added successfully', 200);
             res.status(responseData.meta.code).json(responseData);
         } else{
-            res.send('Issure, Please try later');
+            res.send('Issue, Please try later');
         }
     } catch (e) {
         responseData = Utility.getResponseData(false, 'Failed, Please try again', 404);
@@ -28,6 +35,11 @@ async function addBusiness(req, res) {
     }
 }
 
+/**
+ * User gets all it's business.
+ * @param user_id number
+ * @return all the business details
+ */
 async function getBusiness(req, res){
     try{
         const db = req.app.get('db');
