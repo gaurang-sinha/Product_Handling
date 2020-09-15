@@ -5,13 +5,13 @@ Creating an application to manage interaction between 3 collection and CRUD over
 Three tables are there
 
 1. user_details
-    column names - user_id, name, email, bio, password
+    column names - user_id(index), name(index), email, bio, password(index)
 
 2. business_detail
-    column names - business_id, user_id, name, email, reg_no
+    column names - business_id(index), user_id(index), name, email, reg_no
 
 3. product_details
-    column names - product_id, user_id, business_id, name, mrp, description, is_business, is_user, is_delete
+    column names - product_id(index), user_id(index), business_id(index), name, mrp, description, is_business, is_user, is_delete(index)
 
 # How to run the project
 
